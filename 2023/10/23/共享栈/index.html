@@ -16,19 +16,21 @@
   <meta name="author" content="Alan">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="My New Post">
-<meta property="og:url" content="https://forever0823.github.io/2022/11/15/My-New-Post/index.html">
+    <meta name="description" content="共享栈是一种特殊的栈结构，它允许两个栈共享同一段物理内存区域。共享栈有两个栈顶指针，分别称为top 1和top 2，它们分别指向两个栈的栈顶元素。在共享栈中，两个栈可以分别从两端向中间生长，当它们的栈顶指针相遇时，表示共享栈已满。 下面是共享栈的基本操作：  初始化（Init）：创建一个空的共享栈，并初始化top 1和top 2指针为-1，表示两个栈为空。 入栈（Push）： 当要插入元素到栈1时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="共享栈">
+<meta property="og:url" content="https://forever0823.github.io/2023/10/23/%E5%85%B1%E4%BA%AB%E6%A0%88/index.html">
 <meta property="og:site_name" content="Alan">
+<meta property="og:description" content="共享栈是一种特殊的栈结构，它允许两个栈共享同一段物理内存区域。共享栈有两个栈顶指针，分别称为top 1和top 2，它们分别指向两个栈的栈顶元素。在共享栈中，两个栈可以分别从两端向中间生长，当它们的栈顶指针相遇时，表示共享栈已满。 下面是共享栈的基本操作：  初始化（Init）：创建一个空的共享栈，并初始化top 1和top 2指针为-1，表示两个栈为空。 入栈（Push）： 当要插入元素到栈1时">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-14T16:54:26.000Z">
-<meta property="article:modified_time" content="2023-11-19T04:51:36.711Z">
+<meta property="article:published_time" content="2023-10-23T03:14:32.932Z">
+<meta property="article:modified_time" content="2023-11-19T06:31:17.780Z">
 <meta property="article:author" content="Alan">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>My New Post - Alan</title>
+  <title>共享栈 - Alan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -193,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="My New Post"></span>
+            <span id="subtitle" data-typed-text="共享栈"></span>
           
         </div>
 
@@ -204,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-15 00:54" pubdate>
-          2022年11月15日 凌晨
+        <time datetime="2023-10-23 11:14" pubdate>
+          2023年10月23日 上午
         </time>
       </span>
     
@@ -216,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          2.1k 字
         
       </span>
     
@@ -227,7 +229,7 @@
         
         
         
-          1 分钟
+          18 分钟
         
       </span>
     
@@ -265,12 +267,36 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">My New Post</h1>
+            <h1 style="display: none">共享栈</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>共享栈是一种特殊的栈结构，它允许两个栈共享同一段物理内存区域。共享栈有两个栈顶指针，分别称为top 1和top 2，它们分别指向两个栈的栈顶元素。在共享栈中，两个栈可以分别从两端向中间生长，当它们的栈顶指针相遇时，表示共享栈已满。</p>
+<p>下面是共享栈的基本操作：</p>
+<ol>
+<li>初始化（Init）：创建一个空的共享栈，并初始化top 1和top 2指针为-1，表示两个栈为空。</li>
+<li>入栈（Push）：<ul>
+<li>当要插入元素到栈1时，先检查top 1是否小于top 2-1，如果是，则将元素插入top 1位置，top 1加1。</li>
+<li>当要插入元素到栈2时，先检查top 1是否小于top 2-1，如果是，则将元素插入top 2位置，top 2减1。</li>
+</ul>
+</li>
+<li>出栈（Pop）：<ul>
+<li>当要从栈1中出栈时，首先检查top 1是否不等于-1，如果是，则将top 1位置的元素弹出，并将top 1减1。</li>
+<li>当要从栈2中出栈时，首先检查top 2是否不等于-1，如果是，则将top 2位置的元素弹出，并将top 2加1。</li>
+</ul>
+</li>
+<li>判空（Is Empty）：检查top 1和top 2是否都为-1，如果是，则共享栈为空。</li>
+<li>判满（Is Full）：检查top 1和top 2是否相差为1，如果是，则共享栈已满。</li>
+<li>获取栈顶元素（Top）：<ul>
+<li>当要获取栈1的栈顶元素时，首先检查top 1是否不等于-1，如果是，则返回top 1位置的元素。</li>
+<li>当要获取栈2的栈顶元素时，首先检查top 2是否不等于-1，如果是，则返回top 2位置的元素。</li>
+</ul>
+</li>
+</ol>
+<p>以下是共享栈的伪代码实现，包括初始化、入栈、出栈和获取栈顶元素等操作。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">define</span> MAX_SIZE 100</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> &#123;<br>    ElemType data[MAX_SIZE];<br>    <span class="hljs-type">int</span> top1;  <span class="hljs-comment">// 第一个栈的栈顶指针</span><br>    <span class="hljs-type">int</span> top2;  <span class="hljs-comment">// 第二个栈的栈顶指针</span><br>&#125; SharedStack;<br><span class="hljs-comment">//栈满条件：top1 + 1 = top2</span><br><br><span class="hljs-comment">// 初始化共享栈</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">initSharedStack</span><span class="hljs-params">(SharedStack &amp;S)</span> </span><br><span class="hljs-function"></span>&#123;<br>    S.top1 = <span class="hljs-number">-1</span>;<br>    S.top2 = MAX_SIZE;<br>&#125;<br><br><span class="hljs-comment">// 第一个栈的入栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">pushStack1</span><span class="hljs-params">(SharedStack &amp;S, ElemType x)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top1 + <span class="hljs-number">1</span> &lt; S.top2) <br>    &#123;<span class="hljs-comment">//指针先加1，再入栈</span><br>        S.top1++;<br>        S.data[S.top1] = x;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;栈已满，无法进行入栈操作\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 第一个栈的出栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">popStack1</span><span class="hljs-params">(SharedStack &amp;S, ElemType &amp;x)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top1 &gt;= <span class="hljs-number">0</span>) <br>    &#123;<span class="hljs-comment">//先出栈，指针再减1</span><br>        x = S.data[S.top1];<br>        S.top1--;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <br>    <span class="hljs-keyword">else</span> <br>    &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// 表示栈为空</span><br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 第二个栈的入栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">pushStack2</span><span class="hljs-params">(SharedStack &amp;S, ElemType x)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top2 - <span class="hljs-number">1</span> &gt; S.top1) <br>    &#123;<span class="hljs-comment">//指针先减1，再入栈</span><br>        S.top2--;<br>        S.data[S.top2] = x;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <br>    <span class="hljs-keyword">else</span> <br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;栈已满，无法进行入栈操作\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 第二个栈的出栈</span><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">popStack2</span><span class="hljs-params">(SharedStack &amp;S, ElemType &amp;x)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top2 &lt; MAX_SIZE) <br>    &#123;<span class="hljs-comment">//先入栈，指针再加1</span><br>        x = S.data[S.top2];<br>        S.top2++;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;栈已空，无法进行出栈操作\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// 表示栈为空</span><br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 获取栈顶元素</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">getTopElement</span><span class="hljs-params">(SharedStack S, ElemType &amp;x)</span> </span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (S.top1 &gt;= <span class="hljs-number">0</span>) <br>    &#123;<br>       <span class="hljs-keyword">return</span> S.data[S.top1];<br>    &#125; <br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (S.top2 &lt; MAX_SIZE) <br>    &#123;<br>        <span class="hljs-keyword">return</span> S.data[S.top2];<br>    &#125; <br>    <span class="hljs-keyword">else</span> <br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;栈已空，无栈顶元素\n&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// 表示栈为空</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -287,8 +313,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>My New Post</div>
-      <div>https://forever0823.github.io/2022/11/15/My-New-Post/</div>
+      <div>共享栈</div>
+      <div>https://forever0823.github.io/2023/10/23/共享栈/</div>
     </div>
     <div class="license-meta">
       
@@ -300,7 +326,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月15日</div>
+          <div>2023年10月23日</div>
         </div>
       
       
@@ -332,9 +358,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/15/2022212741%E6%9D%8E%E6%98%8E/" title="转换函数">
+                      <a href="/2023/11/17/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" title="哈夫曼编码">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">转换函数</span>
+                        <span class="hidden-mobile">哈夫曼编码</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -342,8 +368,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/13/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2022/11/15/2022212741%E6%9D%8E%E6%98%8E/" title="转换函数">
+                        <span class="hidden-mobile">转换函数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
