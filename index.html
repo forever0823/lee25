@@ -223,15 +223,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2024/04/24/DES_s%E7%9B%92/" target="_self">
-          DES_s盒
+        <a href="/2024/04/24/AES%20%E4%B9%8BSub_Bytes&amp;Mix_Columns%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
+          AES 之Sub_Bytes&amp;Mix_Columns（二）
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/24/DES_s%E7%9B%92/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/24/AES%20%E4%B9%8BSub_Bytes&amp;Mix_Columns%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
         <div>
-          DES的S盒是一个固定的查找表，它接受6位输入并产生4位输出。DES有8个不同的S盒，每个S盒都是独立的，用于替代&#x2F;替换过程。DES的S盒设计考虑了当时的技术限制，以及对抗已知攻击的需求，包括差分密码分析和线性密码分析。DES的S盒具有非线性特性，这对于提高算法的安全性至关重要。 123456789101112131415161718192021222324252627282930313
+          Inv_Sub_Bytes（逆字节代换）：Inv_Sub_Bytes是AES算法中的一个步骤，它是Sub_Bytes的逆过程，用于解密过程中对数据进行逆变换。在AES算法中，Inv_Sub_Bytes操作对状态的每个字节使用逆S-Box的进行替换。AES的S-Box是一个16x16的查找表，用于在加密过程中将每个字节映射到另一个字节。Inv_Sub_Bytes使用的是S-Box的逆查找表，即Inv
         </div>
       </a>
 
@@ -239,7 +239,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-04-24 00:06" pubdate>
+            <time datetime="2024-04-24 11:57" pubdate>
               2024-04-24
             </time>
           </div>
@@ -256,15 +256,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2024/04/24/AES_Subbytes&amp;Mixcolumns/" target="_self">
-          AES 之Sub_Bytes&amp;Mix_Columns
+        <a href="/2024/04/24/AES_Subbytes&amp;Mixcolumns%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
+          AES 之Sub_Bytes&amp;Mix_Columns（一）
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/24/AES_Subbytes&amp;Mixcolumns/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/24/AES_Subbytes&amp;Mixcolumns%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
         <div>
           Sub_Bytes（字节代换）：AES的字节代换其实就是一个简单的查表操作。 AES的S盒，也称为字节替换（SubBytes）步骤中的Rijndael S盒，是一个复杂的结构。它是一个16x16的查找表，接受8位输入并产生8位输出。AES的S盒是通过将每个字节与其逆元素在有限域GF(2^8)上相乘，然后通过一个固定的仿射变换得到的。这个S盒不仅具有非线性，而且还具有很好的扩散特性，能够抵抗各种密码
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-24 11:57" pubdate>
+              2024-04-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2024/04/24/DES_s%E7%9B%92/" target="_self">
+          DES-S 盒
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/24/DES_s%E7%9B%92/" target="_self">
+        <div>
+          DES_s盒DES的S盒是一个固定的查找表，它接受6位输入并产生4位输出。DES有8个不同的S盒，每个S盒都是独立的，用于替代&#x2F;替换过程。DES的S盒设计考虑了当时的技术限制，以及对抗已知攻击的需求，包括差分密码分析和线性密码分析。DES的S盒具有非线性特性，这对于提高算法的安全性至关重要。 s盒代换代码实现： 12345678910111213141516171819202122232
         </div>
       </a>
 
@@ -454,13 +487,13 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/11/15/2022212741%E6%9D%8E%E6%98%8E/" target="_self">
+        <a href="/2022/11/15/work1/" target="_self">
           转换函数
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/15/2022212741%E6%9D%8E%E6%98%8E/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/15/work1/" target="_self">
         <div>
           题目：实现十进制数字到任意进制的转换函数:12345void baseConverter(int dec,int base);//其中base为转换的基数//示例：--&gt;input   :250, 16--&gt;output  :FA    查资料：基数：在一种数制中，只能使用一组固定的数字来表示数的大小，这组固定的数字的个数就称为该计数制的基数（Base）。例如十进制的基数为10，二进制
         </div>
