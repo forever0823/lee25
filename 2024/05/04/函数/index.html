@@ -1,0 +1,694 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/img-36b07207b83172bfb82062dbce172c3f135ca0c6a2693dfd8c1101a89307fbca.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Alan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在Python中，函数是一种基本的数据结构，它允许你将一段代码封装起来，以便重复使用。下面是对你提到的各个概念的解释和例子： 1.不可变与可变参数：在Python中，可变参数（Mutable Arguments）和不可变参数（Immutable Arguments）是两种不同的参数类型，它们在函数内部的行为和用途上有所不同。 不可变参数不可变参数指的是在函数内部不能被修改的对象，如整数、浮点数、字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python（三）">
+<meta property="og:url" content="https://forever0823.github.io/2024/05/04/%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="Alan">
+<meta property="og:description" content="在Python中，函数是一种基本的数据结构，它允许你将一段代码封装起来，以便重复使用。下面是对你提到的各个概念的解释和例子： 1.不可变与可变参数：在Python中，可变参数（Mutable Arguments）和不可变参数（Immutable Arguments）是两种不同的参数类型，它们在函数内部的行为和用途上有所不同。 不可变参数不可变参数指的是在函数内部不能被修改的对象，如整数、浮点数、字">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-04T05:07:55.989Z">
+<meta property="article:modified_time" content="2024-05-04T05:04:57.563Z">
+<meta property="article:author" content="Alan">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Python（三） - Alan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"forever0823.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":40,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lee</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/kg_1667626016958.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python（三）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-04 13:07" pubdate>
+          2024年5月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Python（三）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在Python中，函数是一种基本的数据结构，它允许你将一段代码封装起来，以便重复使用。下面是对你提到的各个概念的解释和例子：</p>
+<h3 id="1-不可变与可变参数："><a href="#1-不可变与可变参数：" class="headerlink" title="1.不可变与可变参数："></a><strong>1.不可变与可变参数</strong>：</h3><p>在Python中，可变参数（Mutable Arguments）和不可变参数（Immutable Arguments）是两种不同的参数类型，它们在函数内部的行为和用途上有所不同。</p>
+<h4 id="不可变参数"><a href="#不可变参数" class="headerlink" title="不可变参数"></a><strong>不可变参数</strong></h4><p>不可变参数指的是在函数内部不能被修改的对象，如整数、浮点数、字符串、元组等。一旦一个不可变对象被创建，其值就不能被更改。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">a</span>):<br>    a = a + <span class="hljs-number">1</span>  <span class="hljs-comment"># 尝试修改不可变对象</span><br>    <span class="hljs-keyword">return</span> a<br>num = <span class="hljs-number">5</span><br><span class="hljs-built_in">print</span>(func(num))  <span class="hljs-comment"># 输出: 5，因为num是不可变的</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a><strong>可变参数</strong></h4><p>可变参数指的是在函数内部可以被修改的对象，如列表（List）、字典（Dictionary）、集合（Set）等。这些对象在函数内部可以被添加、删除或修改元素。</p>
+<h5 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>(<span class="hljs-params">lst</span>):<br>    lst.append(<span class="hljs-number">1</span>)  <span class="hljs-comment"># 修改可变对象</span><br>    <span class="hljs-keyword">return</span> lst<br>my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><span class="hljs-built_in">print</span>(func(my_list))  <span class="hljs-comment"># 输出: [1, 2, 3, 1]，因为my_list是可变的</span><br></code></pre></td></tr></table></figure>
+<p>在实际编程中，了解可变参数和不可变参数的区别非常重要，因为它们会影响函数的行为和结果。在处理不可变对象时，需要注意，因为尝试修改它们可能会导致错误。而对于可变对象，你可以自由地添加、删除或修改它们的内容。</p>
+<h3 id="2-位置参数："><a href="#2-位置参数：" class="headerlink" title="2.位置参数："></a><strong>2.位置参数</strong>：</h3><p>位置参数（Positional Arguments）是指在函数定义时按照参数位置顺序排列的参数。当你调用一个函数时，你需要按照函数定义中的参数顺序提供相应的值。</p>
+<h5 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">name, message=<span class="hljs-string">&quot;Hello&quot;</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;打印一个问候语&quot;&quot;&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;message&#125;</span>, <span class="hljs-subst">&#123;name&#125;</span>!&quot;</span>)<br><span class="hljs-comment"># 调用函数，提供位置参数</span><br>greet(<span class="hljs-string">&quot;Alice&quot;</span>)  <span class="hljs-comment"># 输出: Hello, Alice!</span><br>greet(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Hi there&quot;</span>)  <span class="hljs-comment"># 输出: Hi there, Bob!</span><br></code></pre></td></tr></table></figure>
+<p>在这个例子中，<code>greet</code> 函数定义了两个位置参数：<code>name</code> 和 <code>message</code>。在调用 <code>greet</code> 函数时，我们按照函数定义中的参数顺序提供值。如果没有提供第二个参数 <code>message</code> 的值，它将使用默认值 “Hello”。</p>
+<h4 id="位置参数的特点"><a href="#位置参数的特点" class="headerlink" title="位置参数的特点"></a>位置参数的特点</h4><ol>
+<li><strong>必须按照顺序提供</strong>：调用函数时，必须按照函数定义中的参数顺序提供值。</li>
+<li><strong>参数名称不重要</strong>：位置参数的名称在调用时不需要指定，Python会根据位置来匹配参数。</li>
+<li><strong>不能有默认值</strong>：位置参数不能有默认值，即在函数定义时不能指定默认值。</li>
+<li><strong>可以有多个</strong>：一个函数可以有多个位置参数，但必须按照定义的顺序提供。<br>  位置参数是函数定义中最常见的一种参数类型，它允许你直接通过位置来传递参数，使得函数调用更加直观和易于理解。</li>
+</ol>
+<h3 id="3-关键字参数："><a href="#3-关键字参数：" class="headerlink" title="3.关键字参数："></a><strong>3.关键字参数</strong>：</h3><p>函数的关键字参数允许你通过参数名而不是位置来指定参数值。这意味着你可以在调用函数时以任意顺序提供参数，只要指定了参数名。关键字参数是在函数定义中使用 <code>=</code> 赋值的参数。</p>
+<h5 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h5><p>展示了如何定义和使用关键字参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">name, message=<span class="hljs-string">&quot;Hello&quot;</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;打印一个问候语&quot;&quot;&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;message&#125;</span>, <span class="hljs-subst">&#123;name&#125;</span>!&quot;</span>)<br><span class="hljs-comment"># 使用关键字参数调用函数</span><br>greet(name=<span class="hljs-string">&quot;Alice&quot;</span>, message=<span class="hljs-string">&quot;Hi&quot;</span>)<br>greet(message=<span class="hljs-string">&quot;Hi&quot;</span>, name=<span class="hljs-string">&quot;Alice&quot;</span>)<br>greet(name=<span class="hljs-string">&quot;Bob&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>在这个例子中，<code>greet</code> 函数接受两个参数：<code>name</code> 和 <code>message</code>。<code>message</code> 参数有一个默认值 “Hello”。在调用 <code>greet</code> 函数时，我们可以通过指定参数名来提供值，这样可以不依赖于参数的顺序，并且可以在没有提供值时使用参数的默认值。</p>
+<h4 id="适用情况"><a href="#适用情况" class="headerlink" title="适用情况"></a>适用情况</h4><ol>
+<li>当函数有多个参数且其中一些参数有默认值时，使用关键字参数可以让代码更清晰，因为它们明确指出了每个参数的含义。</li>
+<li>当你只想更新函数的某些参数而不是所有参数时，关键字参数非常有用。</li>
+<li>当函数参数列表很长时，使用关键字参数可以避免记住参数的顺序，从而减少错误。<br>关键字参数必须在位置参数之后提供，否则会引发语法错误。例如，你不能在位置参数之前使用关键字参数：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">greet(name=<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;Hi&quot;</span>)  <span class="hljs-comment"># 这会引发语法错误</span><br></code></pre></td></tr></table></figure>
+正确的方式是：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">greet(<span class="hljs-string">&quot;Alice&quot;</span>, message=<span class="hljs-string">&quot;Hi&quot;</span>)  <span class="hljs-comment"># 这是正确的</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-缺省参数："><a href="#4-缺省参数：" class="headerlink" title="4.缺省参数："></a><strong>4.缺省参数</strong>：</h3><p>缺省参数（default parameter）是指在没有传入值的情况下，函数会使用默认值的参数。当你定义一个函数时，可以为参数设置默认值，这样在调用函数时如果不提供该参数的值，函数会使用默认值。</p>
+<h5 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">name, message=<span class="hljs-string">&quot;Hello&quot;</span></span>):<br>    <span class="hljs-string">&quot;&quot;&quot;打印一个问候语&quot;&quot;&quot;</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;message&#125;</span>, <span class="hljs-subst">&#123;name&#125;</span>!&quot;</span>)<br><span class="hljs-comment"># 使用缺省参数调用函数</span><br>greet(<span class="hljs-string">&quot;Alice&quot;</span>)            <span class="hljs-comment"># 使用了message的默认值&quot;Hello&quot;</span><br>greet(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;Hi there&quot;</span>)  <span class="hljs-comment"># 覆盖了message的默认值</span><br></code></pre></td></tr></table></figure>
+<p>在这个例子中，<code>greet</code> 函数有两个参数：<code>name</code> 和 <code>message</code>。<code>message</code> 参数有一个默认值 “Hello”。当我们调用 <code>greet</code> 函数时，如果没有为 <code>message</code> 提供值，它将自动使用默认值 “Hello”。<br>在使用缺省参数时，需要注意以下几点：</p>
+<ol>
+<li><strong>缺省参数通常应该放在参数列表的最后，这样可以避免在调用函数时出现不必要的混淆。</strong></li>
+<li><strong>缺省参数的值在函数定义时只会计算一次，这意味着如果缺省参数是一个可变对象（如列表、字典或实例），那么在函数多次调用之间，这个对象可能会保留状态，这可能会导致意外的行为。</strong></li>
+</ol>
+<h5 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">append_to</span>(<span class="hljs-params">element, to=[]</span>):<br>    to.append(element)<br>    <span class="hljs-keyword">return</span> to<br>my_list = append_to(<span class="hljs-number">12</span>)<br><span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># 输出: [12]</span><br>another_list = append_to(<span class="hljs-number">42</span>)<br><span class="hljs-built_in">print</span>(another_list)  <span class="hljs-comment"># 输出: [12, 42]，这不是预期的行为</span><br></code></pre></td></tr></table></figure>
+<p>为了避免这种问题，可以使用 <code>None</code> 作为缺省参数的默认值，然后在函数内部进行检查并分配一个新的对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">append_to</span>(<span class="hljs-params">element, to=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-keyword">if</span> to <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        to = []<br>    to.append(element)<br>    <span class="hljs-keyword">return</span> to<br>my_list = append_to(<span class="hljs-number">12</span>)<br><span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># 输出: [12]</span><br>another_list = append_to(<span class="hljs-number">42</span>)<br><span class="hljs-built_in">print</span>(another_list)  <span class="hljs-comment"># 输出: [42]，这是预期的行为</span><br></code></pre></td></tr></table></figure>
+<p>这样，每次调用 <code>append_to</code> 函数时，如果没有提供 <code>to</code> 参数，它都会创建一个新的列表，从而避免了在不同调用之间共享状态的问题。</p>
+<h3 id="5-不定长参数："><a href="#5-不定长参数：" class="headerlink" title="5.不定长参数："></a><strong>5.不定长参数</strong>：</h3><p>不定长参数（Var-Length Arguments）指的是函数可以接受任意数量的非关键字参数。这通常通过在函数定义中使用星号 <code>*</code> 来指定。<br>不定长参数可以分为两种：</p>
+<h4 id="可变数量的位置参数"><a href="#可变数量的位置参数" class="headerlink" title="可变数量的位置参数"></a><strong>可变数量的位置参数</strong></h4><p>使用星号 <code>*</code> 跟随一个参数名，表示该参数可以接受任意数量的位置参数。这些参数会被打包成一个元组（tuple）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_info</span>(<span class="hljs-params">*vartuple</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;vartuple:&quot;</span>, vartuple)<br>print_info(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)  <span class="hljs-comment"># 输出: vartuple: (10, 20, 30)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="可变关键字参数"><a href="#可变关键字参数" class="headerlink" title="可变关键字参数"></a><strong>可变关键字参数</strong></h4><p>使用双星号 <code>**</code> 跟随一个参数名，表示该参数可以接受任意数量的关键字参数。这些参数会被打包成一个字典（dictionary）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_info</span>(<span class="hljs-params">**varkwargs</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;varkwargs:&quot;</span>, varkwargs)<br>print_info(name=<span class="hljs-string">&quot;Alice&quot;</span>, age=<span class="hljs-number">25</span>)  <span class="hljs-comment"># 输出: varkwargs: &#123;&#x27;name&#x27;: &#x27;Alice&#x27;, &#x27;age&#x27;: 25&#125;</span><br></code></pre></td></tr></table></figure>
+<p>可变数量的位置参数和可变关键字参数可以同时使用，以允许函数接受任意数量的非关键字参数和任意数量的关键字参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_info</span>(<span class="hljs-params">*vartuple, **varkwargs</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;vartuple:&quot;</span>, vartuple)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;varkwargs:&quot;</span>, varkwargs)<br>print_info(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, name=<span class="hljs-string">&quot;Alice&quot;</span>, age=<span class="hljs-number">25</span>)  <span class="hljs-comment"># 输出:</span><br>                                                  <span class="hljs-comment"># vartuple: (10, 20, 30)</span><br>                                                  <span class="hljs-comment"># varkwargs: &#123;&#x27;name&#x27;: &#x27;Alice&#x27;, &#x27;age&#x27;: 25&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+<p>使用不定长参数时</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ul>
+<li>不定长参数必须在函数定义中的其他位置参数之后。</li>
+<li>不定长参数在函数调用时可以不提供值，也可以提供任意数量的值。</li>
+<li>不定长参数的值会被收集到一个元组或字典中，而不是直接传递给函数的参数。</li>
+<li>如果你需要访问不定长参数中的值，你可以使用 <code>*vartuple</code> 或 <code>**varkwargs</code> 来解包这些值。</li>
+</ul>
+<h3 id="6-匿名函数："><a href="#6-匿名函数：" class="headerlink" title="6.匿名函数："></a><strong>6.匿名函数</strong>：</h3><p>匿名函数（Anonymous Functions）也被称为Lambda函数，它们是没有名称的函数，通常只包含一个表达式。Lambda函数的语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">lambda</span> arguments: expression<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>arguments</code>：这是传递给Lambda函数的参数，可以是一个参数，也可以是多个参数，参数之间用逗号分隔。</li>
+<li><code>expression</code>：这是Lambda函数执行的表达式，它的结果就是Lambda函数的返回值。<br>Lambda函数通常用于需要快速定义一个简单的、一次性的函数，或者用于Python的某些内置函数，如 <code>map()</code>、<code>filter()</code> 和 <code>sorted()</code>。</li>
+</ul>
+<h5 id="示例-5"><a href="#示例-5" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 计算两个数的和</span><br>add = <span class="hljs-keyword">lambda</span> x, y: x + y<br><span class="hljs-built_in">print</span>(add(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># 输出: 8</span><br><span class="hljs-comment"># 检查一个数字是否为偶数</span><br>is_even = <span class="hljs-keyword">lambda</span> x: x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br><span class="hljs-built_in">print</span>(is_even(<span class="hljs-number">4</span>))  <span class="hljs-comment"># 输出: True</span><br><span class="hljs-built_in">print</span>(is_even(<span class="hljs-number">5</span>))  <span class="hljs-comment"># 输出: False</span><br><span class="hljs-comment"># 使用Lambda函数作为map()的函数对象</span><br>numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>squared_numbers = <span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: x * x, numbers)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(squared_numbers))  <span class="hljs-comment"># 输出: [1, 4, 9, 16, 25]</span><br><span class="hljs-comment"># 使用Lambda函数作为filter()的函数对象</span><br>numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>even_numbers = <span class="hljs-built_in">filter</span>(<span class="hljs-keyword">lambda</span> x: x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>, numbers)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(even_numbers))  <span class="hljs-comment"># 输出: [2, 4]</span><br></code></pre></td></tr></table></figure>
+<h4 id="Lambda函数的特点"><a href="#Lambda函数的特点" class="headerlink" title="Lambda函数的特点"></a>Lambda函数的特点</h4><ul>
+<li>不能包含代码块，只能包含一个表达式。</li>
+<li>不能有参数列表外的代码。</li>
+<li>不能包含任意复杂的逻辑，因为它们只能包含一个表达式。</li>
+<li>不能有返回语句，因为表达式的结果就是返回值。</li>
+</ul>
+<p>Lambda函数通常用于定义简单的、一次性的函数，或者作为其他函数的参数。它们在处理简单任务时非常有用，但如果需要编写更复杂的函数，应该使用普通的函数定义。</p>
+<h3 id="7-函数装饰器："><a href="#7-函数装饰器：" class="headerlink" title="7.函数装饰器："></a><strong>7.函数装饰器</strong>：</h3><p>函数装饰器（Function Decorator）是Python中一个强大的特性，它允许你在不修改函数代码的情况下，给函数添加额外的功能。<em><strong>装饰器本质上是一个返回函数的高阶函数。</strong></em><br>在Python中，装饰器通常以<code>@</code>符号开头，后面跟着装饰器的名称。当一个函数被一个装饰器装饰时，实际上装饰器返回了一个新的函数，这个新的函数会替换原始函数。</p>
+<h4 id="简单示例："><a href="#简单示例：" class="headerlink" title="简单示例："></a>简单示例：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_decorator</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>():<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Something is happening before the function is called.&quot;</span>)<br>        func()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Something is happening after the function is called.&quot;</span>)<br>    <span class="hljs-keyword">return</span> wrapper<br><span class="hljs-meta">@my_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hello</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello!&quot;</span>)<br>say_hello()  <span class="hljs-comment"># 输出:</span><br>           <span class="hljs-comment"># Something is happening before the function is called.</span><br>           <span class="hljs-comment"># Hello!</span><br>           <span class="hljs-comment"># Something is happening after the function is called.</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>my_decorator</code>是一个装饰器，它接收一个函数作为参数。<code>wrapper</code>是一个新的函数，它包含原始函数<code>say_hello</code>以及额外的打印语句。当调用<code>say_hello</code>时，实际上调用的是<code>wrapper</code>函数。<br><strong>装饰器可以接收参数</strong>，这样就可以根据不同的情况应用不同的装饰器。</p>
+<h5 id="例如：-1"><a href="#例如：-1" class="headerlink" title="例如："></a>例如：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">repeat</span>(<span class="hljs-params">num_times</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator</span>(<span class="hljs-params">func</span>):<br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>            <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(num_times):<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Repeating...&quot;</span>)<br>                func(*args, **kwargs)<br>        <span class="hljs-keyword">return</span> wrapper<br>    <span class="hljs-keyword">return</span> decorator<br><span class="hljs-meta">@repeat(<span class="hljs-params"><span class="hljs-number">3</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hello</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello!&quot;</span>)<br>say_hello()  <span class="hljs-comment"># 输出:</span><br>           <span class="hljs-comment"># Repeating...</span><br>           <span class="hljs-comment"># Hello!</span><br>           <span class="hljs-comment"># Repeating...</span><br>           <span class="hljs-comment"># Hello!</span><br>           <span class="hljs-comment"># Repeating...</span><br>           <span class="hljs-comment"># Hello!</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>repeat</code>是一个装饰器工厂，它接受一个参数<code>num_times</code>。当<code>repeat(3)</code>被应用到<code>say_hello</code>函数上时，它会创建一个新的装饰器，这个装饰器会重复调用<code>say_hello</code>三次，并在每次调用前后打印重复的提示。</p>
+<p>装饰器在Python中非常常用，它们可以用于<strong>日志记录、性能测试、权限检查</strong>等场景。</p>
+<h3 id="8-模块的定义与使用："><a href="#8-模块的定义与使用：" class="headerlink" title="8.模块的定义与使用："></a><strong>8.模块的定义与使用</strong>：</h3><p>模块（Module）是一个包含Python代码的文件，它用于组织代码、重用代码和隐藏实现细节。模块通常包含函数、类、变量和文档字符串。</p>
+<p>模块的定义与使用主要包括以下几个步骤：</p>
+<ol>
+<li><strong>创建模块</strong>：<br>创建一个包含Python代码的文件，该文件名通常是模块名，扩展名为<code>.py</code>。</li>
+<li><strong>编写模块代码</strong>：<br>在模块文件中，你可以编写函数、类、变量和文档字符串。</li>
+<li><strong>使用模块</strong>：<br>要使用模块，你需要导入它。导入模块有几种方式，包括导入整个模块、导入模块中的特定函数或类、使用 <code>from ... import ...</code> 语法等。<br>下面是一个简单的模块示例，以及如何使用它：<br><strong>模块文件（module.py）</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># module.py</span><br><span class="hljs-comment"># 定义一个函数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">name</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;Hello, <span class="hljs-subst">&#123;name&#125;</span>!&quot;</span><br><span class="hljs-comment"># 定义一个类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">introduce</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;My name is <span class="hljs-subst">&#123;self.name&#125;</span> and I am <span class="hljs-subst">&#123;self.age&#125;</span> years old.&quot;</span><br></code></pre></td></tr></table></figure>
+<strong>使用模块的Python文件</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># main.py</span><br><span class="hljs-comment"># 导入模块</span><br><span class="hljs-keyword">import</span> module<br><span class="hljs-comment"># 使用模块中的函数</span><br><span class="hljs-built_in">print</span>(module.greet(<span class="hljs-string">&quot;Alice&quot;</span>))  <span class="hljs-comment"># 输出: Hello, Alice!</span><br><span class="hljs-comment"># 创建模块中的类实例</span><br>person = module.Person(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">30</span>)<br><span class="hljs-built_in">print</span>(person.introduce())  <span class="hljs-comment"># 输出: My name is Bob and I am 30 years old.</span><br></code></pre></td></tr></table></figure>
+在这个例子中，<code>module.py</code> 是一个模块文件，其中包含了一个函数 <code>greet</code> 和一个类 <code>Person</code>。在 <code>main.py</code> 文件中，我们使用 <code>import module</code> 语句来导入整个模块。然后，我们使用 <code>module.greet(&quot;Alice&quot;)</code> 来调用模块中的函数，并使用 <code>module.Person(&quot;Bob&quot;, 30)</code> 来创建模块中的类实例。</li>
+</ol>
+<p>模块的使用可以提高代码的可维护性和可读性，因为它们允许将相关的代码组织在一起，并且可以在不同的项目中重用这些代码。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python（三）</div>
+      <div>https://forever0823.github.io/2024/05/04/函数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Alan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/27/%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8/" title="迭代器和生成器">
+                        <span class="hidden-mobile">迭代器和生成器</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
