@@ -24,10 +24,13 @@
 <meta property="og:description" content="RSARSA算法是一种非对称加密算法，由Ron Rivest、Adi Shamir和Leonard Adleman于1977年发明，并以他们的姓氏首字母命名。RSA算法基于大数分解的难题，即分解两个大素数乘积的难度，这是RSA算法的安全基础。 主要步骤1.密钥生成 选择两个大质数p和q。 计算n &#x3D; p * q，n是加密密钥。 计算欧拉函数φ(n) &#x3D; (p-1) * (q-1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-04T11:30:30.386Z">
-<meta property="article:modified_time" content="2024-05-04T10:34:13.668Z">
+<meta property="article:modified_time" content="2024-05-18T09:52:28.761Z">
 <meta property="article:author" content="Alan">
+<meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary_large_image">
   
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
   
   
   <title>RSA - Alan</title>
@@ -68,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"forever0823.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":40,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"forever0823.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":25,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -78,6 +81,21 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
   
@@ -167,6 +185,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -236,6 +266,14 @@
 
     
     
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
   </div>
 
 
@@ -268,6 +306,14 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">RSA</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年5月18日 下午
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
@@ -318,7 +364,7 @@
 <li>如果x^r_i ≡ -1 (mod n)，则n是合数。</li>
 </ul>
 </li>
-<li>如果所有迭代都没有发现n是合数，则n是素数。<br>  其中，s是测试的迭代次数，s越大，错误率越低。</li>
+<li>如果所有迭代都没有发现n是合数，则n是素数。<br> 其中，s是测试的迭代次数，s越大，错误率越低。</li>
 </ol>
 <h5 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">miller_rabin_primality_check</span>(<span class="hljs-params">n, k=<span class="hljs-number">20</span></span>):<br>   <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">   米勒-拉宾素性检验</span><br><span class="hljs-string">   由于假设n是一个素数，n-1=a^s*d,s和d是常量，改变a的值，检测20次</span><br><span class="hljs-string">   :param n:</span><br><span class="hljs-string">   :param k:</span><br><span class="hljs-string">   :return:</span><br><span class="hljs-string">   &quot;&quot;&quot;</span><br>   <span class="hljs-keyword">assert</span> n &gt; <span class="hljs-number">3</span><br>   <span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>   <span class="hljs-comment"># 找出n-1 = 2^s*d</span><br>   s, d = <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span><br>   <span class="hljs-keyword">while</span> d % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:<br>       d &gt;&gt;= <span class="hljs-number">1</span><br>       s += <span class="hljs-number">1</span><br><br>   <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):<br>       a = randrange(<span class="hljs-number">2</span>, n - <span class="hljs-number">1</span>)<br>       x = <span class="hljs-built_in">pow</span>(a, d, n)<br><br>       <span class="hljs-keyword">if</span> x == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> x == n - <span class="hljs-number">1</span>:<br>           <span class="hljs-keyword">continue</span><br><br>       <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(s):<br>           x = <span class="hljs-built_in">pow</span>(x, <span class="hljs-number">2</span>, n)<br>           <span class="hljs-keyword">if</span> x == n - <span class="hljs-number">1</span>:<br>               <span class="hljs-keyword">break</span><br>       <span class="hljs-keyword">else</span>:<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>   <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
 <p>在这个例子中，<code>miller_rabin</code>函数用于执行米勒-拉宾素性检验。我们选择了一个随机数a，并进行了s次迭代。如果n通过了所有迭代，则我们认为是素数。如果n没有通过所有迭代，我们仍然不能确定它是合数，因为我们使用的是概率性测试。</p>
@@ -370,6 +416,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" class="category-chain-item">密码学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/RSA/">#RSA</a>
+      
+    </div>
   
 </div>
 
@@ -539,6 +613,30 @@
     </div>
   
   
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
   
   
 </div>
@@ -684,6 +782,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
