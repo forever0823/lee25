@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/img-36b07207b83172bfb82062dbce172c3f135ca0c6a2693dfd8c1101a89307fbca.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Alan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="2023盘古石杯（未做）Android程序分析 ​    1.涉案应用刷刷樂的签名序列号是(答案格式：123ca12a)(★☆☆☆☆) ​    2.涉案应用刷刷樂是否包含读取短信权限(答案格式：是&#x2F;否)(★★☆☆☆) ​    3.涉案应用刷刷樂打包封装的调证ID值是(答案格式：123ca12a)(★★☆☆☆) ​    4.涉案应用刷刷樂服务器地址域名是(答案格式：axa.baidu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023盘古石杯">
+<meta property="og:url" content="https://forever0823.github.io/2024/05/09/2023pangushi/index.html">
+<meta property="og:site_name" content="Alan">
+<meta property="og:description" content="2023盘古石杯（未做）Android程序分析 ​    1.涉案应用刷刷樂的签名序列号是(答案格式：123ca12a)(★☆☆☆☆) ​    2.涉案应用刷刷樂是否包含读取短信权限(答案格式：是&#x2F;否)(★★☆☆☆) ​    3.涉案应用刷刷樂打包封装的调证ID值是(答案格式：123ca12a)(★★☆☆☆) ​    4.涉案应用刷刷樂服务器地址域名是(答案格式：axa.baidu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-09T13:57:25.850Z">
+<meta property="article:modified_time" content="2024-05-19T11:03:13.914Z">
+<meta property="article:author" content="Alan">
+<meta property="article:tag" content="盘古石杯">
+<meta property="article:tag" content="电子取证">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>2023盘古石杯 - Alan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"forever0823.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":25,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lee</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/kg_1667626016958.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2023盘古石杯"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-09 21:57" pubdate>
+          2024年5月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          63 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">2023盘古石杯</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年5月19日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2023盘古石杯（未做）"><a href="#2023盘古石杯（未做）" class="headerlink" title="2023盘古石杯（未做）"></a>2023盘古石杯（未做）</h1><p>Android程序分析</p>
+<p>​    1.涉案应用刷刷樂的签名序列号是(答案格式：123ca12a)(★☆☆☆☆)</p>
+<p>​    2.涉案应用刷刷樂是否包含读取短信权限(答案格式：是&#x2F;否)(★★☆☆☆)</p>
+<p>​    3.涉案应用刷刷樂打包封装的调证ID值是(答案格式：123ca12a)(★★☆☆☆)</p>
+<p>​    4.涉案应用刷刷樂服务器地址域名是(答案格式：axa.baidun.com)(★★★☆☆)</p>
+<p>​    5.涉案应用刷刷樂是否存在录音行为(答案格式：是&#x2F;否)(★★★☆☆)</p>
+<p>​    6.涉案应用未来资产的包名是(答案格式：axa.baidun.com)(★☆☆☆☆)</p>
+<p>​    7.涉案应用未来资产的语音识别服务的调证key值是(答案格式：1ca2jc)(★★☆☆☆)</p>
+<p>​    8.涉案应用未来资产的服务器地址域名是(答案格式：axa.baidun.com)(★★★☆☆)</p>
+<p>​    9.涉案应用未来资产的打包封装的调证ID值是是(答案格式：axa.baidun.com)(★★☆☆☆)</p>
+<p>移动智能终端取证</p>
+<p>​    1.根据容恨寒的安卓手机分析，手机的蓝牙物理地址是(答案格式：B9:8B:35:8B:03:52)(★☆☆☆☆)</p>
+<p>A9:8B:34:8B:04:50</p>
+<p>​    2.根据容恨寒的安卓手机分析，SIM卡的ICCID是(答案格式：80891103212348510720)(★☆☆☆☆)</p>
+<p>89014103211118510720</p>
+<p>​    3.根据容恨寒的安卓手机分析，团队内部沟通的聊天工具程序名称是(答案格式：微信)(★☆☆☆☆)</p>
+<p>Potato</p>
+<p>​    <strong>4.根据容恨寒的安卓手机分析，团队内部沟通容恨寒收到的最后一条聊天信息内容是(答案格式：好的)(★★★☆☆)</strong></p>
+<p>​    5.根据容恨寒的安卓手机分析，收到的刷单.rar的MD5值是(答案格式：202cb962ac59075b964b07152d234b70)(★★☆☆☆)</p>
+<p>dc52d8225fd328c592841cb1c3cd1761</p>
+<p>​     <strong>6.根据容恨寒的安卓手机分析，收到的刷单.rar的解压密码是(答案格式：abcdg@1234@hd)(★★★☆☆)</strong></p>
+<p>​    <strong>7.根据容恨寒的安卓手机分析，发送刷单.rar的用户的手机号是(答案格式：15137321234)(★★★★☆)</strong></p>
+<p>​    <strong>8.根据容恨寒的安卓手机分析，发送多个报表的用户来自哪个部门(答案格式：理财部)(★★★★★)</strong></p>
+<p>​    9.根据容恨寒的安卓手机分析，MAC的开机密码是(答案格式：asdcz)(★☆☆☆☆)</p>
+<p>apple</p>
+<p>​    10.根据容恨寒的安卓手机分析，苹果手机的备份密码前4位是(答案格式：1234)(★☆☆☆☆)</p>
+<p>1976</p>
+<p>​    11.根据魏文茵苹果手机分析，IMEI号是？(答案格式:239471000325479)(★☆☆☆☆)</p>
+<p>358360063200634</p>
+<p>​    12.根据魏文茵苹果手机分析，可能使用过的电话号码不包括？(答案格式:13527821339)(★☆☆☆☆)</p>
+<p>A：18043618705 B：19212175391 C:19212159177 D:18200532661</p>
+<p>D</p>
+<p>​    13.根据臧觅风的安卓手机分析，微信ID是(答案格式：wxid_av7b3jbaaht123)(★☆☆☆☆)</p>
+<p>wxid_kr7b3jbooht322</p>
+<p>​    14.根据臧觅风的安卓手机分析，在哪里使用过交友软件(答案格式：杭州)(★★★☆☆)</p>
+<p>西安</p>
+<p>​    15.根据臧觅风的安卓手机分析，嫌疑人从哪个用户购买的源码，请给出出售源码方的账号(答案格式：1234524229)(★☆☆☆☆)</p>
+<p>5768224669</p>
+<p>​    16.根据臧觅风的安卓手机分析，购买源码花了多少BTC？(答案格式：1.21)(★☆☆☆☆)</p>
+<p>0.08</p>
+<p>​    17.根据臧觅风的安卓手机分析，接收源码的邮箱是(答案格式：<a href="mailto:&#x61;&#x73;&#100;&#97;&#115;&#100;&#x36;&#54;&#54;&#x40;&#104;&#111;&#x74;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x73;&#100;&#97;&#115;&#100;&#x36;&#54;&#54;&#x40;&#104;&#111;&#x74;&#109;&#x61;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a>)(★☆☆☆☆)</p>
+<p><a href="mailto:&#109;&#111;&#x6c;&#x69;&#104;&#x75;&#x61;&#x63;&#x68;&#97;&#x30;&#x30;&#x37;&#64;&#x68;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#109;&#111;&#x6c;&#x69;&#104;&#x75;&#x61;&#x63;&#x68;&#97;&#x30;&#x30;&#x37;&#64;&#x68;&#111;&#116;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></p>
+<p>​    18.嫌疑人容恨寒苹果手机的IMEI是?(★★☆☆☆)</p>
+<p>​    19.嫌疑人容恨寒苹果手机最后备份时间是?(答案格式:2000-01-01 13:36:25)(★★☆☆☆)<br>​    20.嫌疑人容恨寒苹果手机“易信”的唯一标识符（UUID）？(★★★★☆)<br>​    21.嫌疑人容恨寒苹果手机微信ID是?★☆☆☆☆)</p>
+<p>计算机取证</p>
+<p>​    1.嫌疑人魏文茵计算机的操作系统版本?(答案格式:Windows 7 Ultimate 8603)(★☆☆☆☆)</p>
+<p>Windows 10 Pro 14393</p>
+<p>​    2.嫌疑人魏文茵计算机默认的浏览器是?(答案格式:Internet Explorer)(★☆☆☆☆)</p>
+<p>Google Chrome</p>
+<p>​    3.嫌疑人魏文茵计算机中以下那个文档不是嫌疑人最近打开过的文档?(答案格式:D)(★☆☆☆☆)A：掠夺攻略.docx B：工资表.xlsx C:刷单秘籍.docx D:脚本.docx</p>
+<p>A：掠夺攻略</p>
+<p>​    4.嫌疑人魏文茵计算机中存在几个加密分区?(答案格式:3个)(★★☆☆☆)</p>
+<p>1</p>
+<p>​    5.嫌疑人魏文茵计算机中安装了哪个第三方加密容器?(答案格式:VeraCrypt))(★☆☆☆☆)</p>
+<p>TrueCrypt</p>
+<p>​    6.接上题，嫌疑人魏文茵计算机中加密容器加密后的容器文件路径？(答案格式:C:\xxx\xxx)(★★☆☆☆)</p>
+<p>​    7.嫌疑人魏文茵计算机中磁盘分区BitLocker加密恢复秘钥为?(答案格式: 000000-000000-000000-000000-000000-000000-000000-000000))(★★★☆☆)</p>
+<p>​    8.嫌疑人魏文茵计算机中BitLocker加密分区中“攻略.docx”文档里涉及多少种诈骗方式?(答案格式:11)(★☆☆☆☆)</p>
+<p>​    9.投资理财团伙“华中组”目前诈骗收益大约多少?(答案格式:10万)(★★☆☆☆)<br>​    10.通过对嫌疑人魏文茵计算机内存分析，print.exe的PID是？(答案格式:123)(★★☆☆☆)<br>​    11.根据臧觅风的计算机分析，请给出技术人员计算机“zang.E01”的SHA-1?(答案格式:7B2DC1741AE00D7776F64064CDA321037563A769)(★☆☆☆☆)<br>​    12.根据臧觅风的计算机分析，请给出该技术人员计算机“zang.E01”的总扇区数？(答案格式:100,000,000)(★★☆☆☆)<br>​    13.根据臧觅风的计算机分析，以下那个文件不是技术人员通过浏览器下载的？(答案格式:A)(★☆☆☆☆)<br>​    14.根据臧觅风的计算机分析，请给出该技术人员邮件附件“好东西.zip”解压密码？(答案格式:abc123)(★★★★★)<br>​    15.根据臧觅风的计算机分析，该技术人员电脑内曾通过远程管理工具连接过服务器“master.k8s.com”,请给出连接的端口号？(答案格式:22)(★★☆☆☆)<br>​    16.根据臧觅风的计算机分析，接上题，请给出服务器的密码？(答案格式:password(★★★★☆)<br>​    17.根据臧觅风的计算机分析，据该技术人员交代，其电脑内有个保存各种密码的txt文件，请找出该文件，计算其MD5值？(答案格式:7B2DC1741AE00D7776F64064CDA321037563A769)(★★★★★)<br>​    18.根据臧觅风的计算机分析，该技术人员曾使用过加密容器反取证技术，请给出该容器挂载的盘符？(答案格式:A)(★☆☆☆☆)<br>​    19.根据臧觅风的计算机分析，请给出该技术人员电脑内keePass的Master Password？(答案格式:password12#)(★★★★☆)<br>​    20.根据臧觅风的计算机分析，请给出该技术人员所使用的爬虫工具名称？(答案格式:xxx)(★★☆☆☆)<br>​    21.根据臧觅风的计算机分析，接上题，该技术人员通过该采集器一共采集了多少条人员信息数据？(答案格式:10,000)(★★★★★)<br>​    22.根据臧觅风的计算机分析，以下那个不是该技术人员通过爬虫工具采集的数据？(答案格式:A)(★☆☆☆☆)<br>​    23.根据臧觅风的计算机分析，该嫌疑人曾浏览过“阿里云WebDAV”，请给出该“阿里云WebDAV”端口号？(答案格式:2211)(★★☆☆☆)<br>​    24.根据臧觅风的计算机分析，请给出该技术人员电脑内代理软件所使用的端口号？(答案格式:2211)(★★☆☆☆)<br>​    25.根据臧觅风的计算机分析，接上题，请给出该代理软件内订阅链接的token？(答案格式:abc1234df334…)(★★☆☆☆)<br>​    26.根据臧觅风的计算机分析，请给出该技术人员电脑内用于内部通联工具的地址和端口？(答案格式:<a href="http://www.baidu.com:1122)(★★★☆☆)">www.baidu.com:1122)(★★★☆☆)</a><br>​    27.根据臧觅风的计算机分析，请给出该电脑内存镜像创建的时间（北京时间）？(答案格式:2023-05-06 14:00:00)(★☆☆☆☆)<br>​    28.根据臧觅风的计算机分析，以下那个不是“chrone.exe”的动态链接库？(答案格式:A)(★★★★☆)<br>​    29.根据臧觅风的计算机分析，请给出“\REGISTRY\MACHINE\SYSTEM”在内存镜像中的虚拟地址是多少？(答案格式:0xxxxx123…)(★★☆☆☆)<br>​    30.根据臧觅风的计算机分析，据嫌疑人交代，其电脑上曾存打开过一个名为“账号信息.docx”的文档，请给出该文档的最后访问时间（北京时间）？(答案格式:2023-05-06 14:00:00)(★★★★☆)<br>​    31.根据臧觅风的计算机分析，接上题，请给出该文档的存储路径？(答案格式:C:\xxx\xxx)(★★★☆☆)<br>​    32.嫌疑人容恨寒苹果电脑的系统版本名称是？(答案格式:注意大小写)(★☆☆☆☆)<br>​    33.嫌疑人容恨寒苹果电脑操作系统安装日期是？(答案格式:2000-01-01)(★★☆☆☆)<br>​    34.嫌疑人容恨寒苹果电脑的内核版本是？(答案格式:xxxxx 11.0.4，注意大小写)(★☆☆☆☆)<br>​    35.嫌疑人容恨寒苹果电脑有多少正在运行的后台程序？(答案格式:20)(★★☆☆☆)<br>​    36.嫌疑人容恨寒苹果电脑最后一次关机时间（GMT）？(答案格式:2000-01-01 01:00:09)(★★☆☆☆)<br>​    37.嫌疑人容恨寒苹果电脑执行过多少次查询主机名称命令？(答案格式:20)(★★★☆☆)<br>​    38.从嫌疑人容恨寒苹果电脑中找出“陆文杰”提现金额是？(答案格式:20)(★★★★☆)<br>​    39.从嫌疑人容恨寒苹果电脑中找出嫌疑人容恨寒上午上班时长是？(答案格式:8小时)(★★★★☆)<br>​    40.从嫌疑人容恨寒苹果电脑中找出“万便”的邮箱是？(答案格式:<a href="mailto:&#x78;&#120;&#120;&#64;&#120;&#x78;&#120;&#46;&#120;&#120;">&#x78;&#120;&#120;&#64;&#120;&#x78;&#120;&#46;&#120;&#120;</a>)(★★★★☆)<br>​    41.通过分析得出嫌疑人容恨寒小孩的年龄是？(答案格式:10岁)(★★★☆☆)</p>
+<p>二进制文件分析</p>
+<p>​    1.根据魏文茵的计算机分析，恶意程序加了什么类型的壳(答案格式：asdcz)(★★☆☆☆)<br>​    2.根据魏文茵的计算机分析，恶意程序调用了几个dll(答案格式：1)(★★★☆☆)<br>​    3.根据魏文茵的计算机分析，恶意程序中send函数被多少个函数调用(答案格式：1)(★★★☆☆)<br>​    4.根据魏文茵的计算机分析，恶意程序远控端ip(答案格式：120.1.2.3)(★★☆☆☆)<br>​    5.根据魏文茵的计算机分析，恶意程序远控端端口(答案格式：123)(★★☆☆☆)<br>​    6.根据魏文茵的计算机分析，恶意程序用到是tcp还是udp(★★★☆☆)<br>​    7.根据魏文茵的计算机分析，恶意程序能执行几条命令(答案格式：123)(★★★★☆)<br>​    8.根据魏文茵的计算机分析，恶意程序加密电脑文件对应是哪个命令(答案格式：1a)(★★★☆☆)<br>​    9.(多选题)根据魏文茵的计算机分析，恶意程序加密哪些后缀文件(★★★☆☆)<br>​    10.根据魏文茵的计算机分析，编写该程序电脑的用户名是(答案格式：12345)(★★★★★)<br>​    11.嫌疑人魏文茵计算机中“工资表.xlsx”中，发放工资总金额为：(答案格式:12345))(★★★★★)</p>
+<p>暗网取证</p>
+<p>​    1.臧觅风电脑使用暗网浏览器版本是？(答案格式：10.0.0)(★☆☆☆☆)<br>​    2.臧觅风电脑使用的暗网浏览器历史记录中最多浏览内容是？(答案格式：制作)(★★☆☆☆)<br>​    3.臧觅风电脑使用的暗网网浏览器书签“社工库”添加的时间是？(答案格式：2000-01-01 01:00:09)(★★★★☆)<br>​    4.臧觅风电脑使用的暗网浏览器第一次使用时间是？(答案格式：2000-01-01 01:00:09)(★★★☆☆)<br>​    5.臧觅风电脑使用的暗网浏览器扩展应用中“ftp.js”文件的md5值是？(答案格式：字母小写)(★★★★★)</p>
+<p>物联取证</p>
+<pre><code class="hljs">* 前期配置部分
+    1.请给出该软路由管理的IP地址？(答案格式:192.168.1.1)(★☆☆☆☆)
+    2.请给出该软路由管理员的密码？(答案格式:admin123!@#)(★★★☆☆)
+    3.请给出阿里云WebDAV的token？(答案格式:bac123sasdew3212…)(★★☆☆☆)
+    4.请给出该软路由所用机场订阅的token？(答案格式:bac123sasdew3212…)(★★☆☆☆)
+    5.请给出该软路由数据卷的UUID？(答案格式:8adn28hd-00c0c0c0…)(★★☆☆☆)
+    6.请给出该软路由的共享路径？(答案格式:/home/data)(★★☆☆☆)
+</code></pre>
+<p>服务器取证</p>
+<pre><code class="hljs">* 前期配置部分
+    1.请给出IM服务器的当前Build版本？(答案格式:11111)(★☆☆☆☆)
+    2.请给出IM聊天服务的启动密码？(答案格式:3w.Baidu.com)(★★★★★)
+    3.请给出该聊天服务器所用的PHP版本？(答案格式:7.2.5)(★★★★☆)
+    4.请给出该服务器所用的数据库类型及版本？(答案格式:mysql 5.7.1)(★★★★★)
+    5.请给出该服务器MySQL数据库root账号的密码？(答案格式:3w.baidu.com)(★★★★★)
+    6.请给该IM服务器内当前企业所使用的数据库？(答案格式:admin_admin)(★★★★☆)
+    7.请给出该组织“usdtreclub”内共有多少个部门（不含分区）？(答案格式:1)(★★★☆☆)
+    8.客户端消息传输采用哪种加密形式？(答案格式:A)(★★☆☆☆)
+    9.以下那个不是此系统提供的应用？(答案格式:A)(★★☆☆☆)
+    10.请给出“ 2023-04-11 21:48:14”登录成功此系统的用户设备MAC地址？(答案格式:08-AA-33-DF-1A)(★★★☆☆)
+    11.请给出用户“卢正文”的手机号码？(答案格式:13888888888)(★★★★☆)
+</code></pre>
+<p>集群服务器取证</p>
+<pre><code class="hljs">* 前期配置部分
+    1.请给出集群master节点的内核版本？(答案格式:2.6.0-104.e11.x86_64)(★☆☆☆☆)
+    2.请给出该集群的pod网络？(答案格式:192.168.0.0/24)(★★★★☆)
+    3.请给出该集群所用的网络插件？(答案格式:abcd)(★★☆☆☆)
+    4.默认ns除外，本集群共有多少个ns？(答案格式:1)(★★★☆☆)
+    5.请给出该集群的集群IP？(答案格式:192.168.0.0)(★★☆☆☆)
+    6.请给出该ns为“licai”svc为“php-svc”的访问类型？(答案格式:Abc)(★★☆☆☆)
+    7.请给出ns为“shuadan”下的的PHP版本？(答案格式:1.1)(★★★★★)
+    8.请给出本机集群所使用的私有仓库地址？(答案格式:192.168.0.0)(★★★★☆)
+    9.接上题，请给出登录该私有仓库所用的token？(答案格式:bae213ionada21…)(★★★★★)
+    10.请给出“licaisite”持久化存储的大小？(答案格式:10G)(★★☆☆☆)
+    11.接上题，请给出对应的存储持久化声明名称？(答案格式:abc-abc)(★★★☆☆)
+    12.请给出集群内部署网站所使用数据库的IP地址和端口号？(答案格式:192.168.0.0:8080)(★★★☆☆)
+    13.请给出网站“vip.kefu.com”所使用的端口号？(答案格式:8080)(★★☆☆☆)
+    14.请给出网站“vip.shuadan.com”连接数据库所使用的账号和密码？(答案格式root/password)(★★★★★)
+    15.请给出调证数据库的版本号？(答案格式5.7.1)(★★★★★)
+    * 本地重构网站
+        16.请给出刷单网站客服域名？(★★★★★)
+        17.请给出理财客服系统用户“admin”共有多少个会话窗口？(答案格式:123)(★★★★★)
+        18.刷单客服是嵌套在刷单源码下那个文件内，请给出该文件在网站源码内的目录和文件名？(答案格式:www.baidu.com:8080/login.html)(★★★★★)
+        19.请统计出刷单网站后台累计提现成功的金额？(答案格式:1000)(★☆☆☆☆)
+        20.请给出受害人上级的电话号码？(答案格式:13888888888)(★★★☆☆)
+        21.请给出刷单网站受害人加款的时间（北京时间）？(答案格式:2023-05-06 14:00:00)(★★★☆☆)
+        22.该理财网站曾经被挂马，请给出上传木马者的IP？(答案格式:192.168.10.10)(★★★☆☆)
+        23.接上题，请找到此木马，计算该木马的md5？(答案格式:123dadgadad332...)(★★★☆☆)
+        24.请统计该投资理财平台累计交易额为多少亿？(答案格式:1.8)(★★☆☆☆)
+        25.请给出该虚拟币投资平台内用户“李国斌”的银行卡号？(答案格式:622222222222222)(★★★☆☆)
+        26.分析该虚拟币投资平台财务明细表，用户“13912345678”共支出多少钱（cnc）, 结果保留两位小数？(答案格式:10000.00)(★★★★★)
+</code></pre>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/" class="category-chain-item">电子取证</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%9B%98%E5%8F%A4%E7%9F%B3%E6%9D%AF/">#盘古石杯</a>
+      
+        <a href="/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/">#电子取证</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2023盘古石杯</div>
+      <div>https://forever0823.github.io/2024/05/09/2023pangushi/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Alan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/12/2024%E7%9B%98%E5%8F%A4%E7%9F%B3%E5%A4%8D%E7%9B%98/" title="2024盘古石杯复盘">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2024盘古石杯复盘</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/04/RSA/" title="RSA">
+                        <span class="hidden-mobile">RSA</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
