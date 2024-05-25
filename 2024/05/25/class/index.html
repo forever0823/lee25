@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" href="/img/img-36b07207b83172bfb82062dbce172c3f135ca0c6a2693dfd8c1101a89307fbca.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Alan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="面向对象编程Python面向对象编程（Object-Oriented Programming，简称OOP）是一种编程范式，它通过将数据和方法绑定成一个对象来实现程序设计和代码重用的思想。Python从设计之初就已经是一门面向对象的语言，因此在Python中创建类和对象是非常容易的。 基本概念类是定义对象的模板，包含了对象的属性和方法。类通过继承、多态等机制实现代码的复用和扩展。 对象是类的实例，每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python（四）">
+<meta property="og:url" content="https://forever0823.github.io/2024/05/25/class/index.html">
+<meta property="og:site_name" content="Alan">
+<meta property="og:description" content="面向对象编程Python面向对象编程（Object-Oriented Programming，简称OOP）是一种编程范式，它通过将数据和方法绑定成一个对象来实现程序设计和代码重用的思想。Python从设计之初就已经是一门面向对象的语言，因此在Python中创建类和对象是非常容易的。 基本概念类是定义对象的模板，包含了对象的属性和方法。类通过继承、多态等机制实现代码的复用和扩展。 对象是类的实例，每">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-25T10:52:31.128Z">
+<meta property="article:modified_time" content="2024-05-25T10:51:52.989Z">
+<meta property="article:author" content="Alan">
+<meta property="article:tag" content="类（class）">
+<meta property="article:tag" content="面向对象编程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Python（四） - Alan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"forever0823.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":25,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lee</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/kg_1667626016958.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python（四）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-05-25 18:52" pubdate>
+          2024年5月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Python（四）</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2024年5月25日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><p>Python面向对象编程（Object-Oriented Programming，简称OOP）是一种编程范式，它通过将数据和方法绑定成一个对象来实现程序设计和代码重用的思想。Python从设计之初就已经是一门面向对象的语言，因此在Python中创建类和对象是非常容易的。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>类是定义对象的模板，包含了对象的属性和方法。类通过继承、多态等机制实现代码的复用和扩展。</p>
+<p>对象是类的实例，每个对象都有其独特的属性和方法。对象可以通过类进行实例化。</p>
+<p>属性是对象的数据部分，可以通过类中的<code>__init__</code>方法进行初始化。</p>
+<p>方法是类中定义的函数，用于操作对象的属性。方法可以访问和修改对象的状态。</p>
+<p>继承是指一个类可以继承另一个类的属性和方法，从而实现代码的复用。</p>
+<p>多态是指不同类的对象可以对同一消息做出响应，即同一接口下不同的实现方式。</p>
+<h3 id="创建类和对象"><a href="#创建类和对象" class="headerlink" title="创建类和对象"></a>创建类和对象</h3><p>在Python中创建类和对象的步骤如下：</p>
+<p>使用关键字<code>class</code>来定义一个类。类名通常以大写字母开头，并且每个单词的首字母都大写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name  = name<br>        self.age  = age<br></code></pre></td></tr></table></figure>
+
+<p>使用类名加上括号来创建对象实例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">p1 = Person(<span class="hljs-string">&quot;张三&quot;</span>, <span class="hljs-number">30</span>)<br></code></pre></td></tr></table></figure>
+
+<p>可以通过对象实例访问其属性和方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">print</span>(p1.name )  <span class="hljs-comment"># 输出: 张三</span><br><span class="hljs-built_in">print</span>(p1.age )   <span class="hljs-comment"># 输出: 30</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="特殊方法"><a href="#特殊方法" class="headerlink" title="特殊方法"></a>特殊方法</h3><p>Python中的类还有一些特殊方法，如<code>__init__</code>、<code>__str__</code>、<code>__repr__</code>等，这些方法用于初始化对象、返回字符串表示形式等。</p>
+<p>例如，<code>__init__</code>方法用于初始化对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name  = name<br>        self.age  = age<br></code></pre></td></tr></table></figure>
+
+<p><code>__str__</code>方法用于返回对象的字符串表示形式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name  = name<br>        self.age  = age<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;self.name &#125;</span> is <span class="hljs-subst">&#123;self.age &#125;</span> years old.&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="继承和多态"><a href="#继承和多态" class="headerlink" title="继承和多态"></a>继承和多态</h3><p>继承允许新创建的类继承现有类的属性和方法，从而避免重复代码。多态则是指不同类的对象可以对同一消息做出响应。</p>
+<p>例如，假设有一个基类<code>Animal</code>，以及一个继承自<code>Animal</code>的子类<code>Dog</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sound</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The animal makes a sound.&quot;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sound</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The dog barks.&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>Dog</code>类通过继承<code>Animal</code>类并覆盖<code>sound</code>方法，实现了多态。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Python面向对象编程通过类和对象的概念，将数据和行为封装在一起，使得代码更加模块化、易于维护和扩展。通过学习和掌握面向对象编程的基本概念和技巧，可以有效地提高编程能力和项目开发效率。</p>
+<h4 id="类和对象的高级特性"><a href="#类和对象的高级特性" class="headerlink" title="类和对象的高级特性"></a>类和对象的高级特性</h4><p>在Python中，面向对象编程（OOP）具有许多高级特性，这些特性使得类和对象的功能更加强大和灵活。以下是一些主要的高级特性：</p>
+<ol>
+<li><strong>特殊方法</strong>：<ul>
+<li><code>__init__</code>：构造函数，用于初始化对象。</li>
+<li><code>__str__</code>：返回对象的字符串表示形式。</li>
+<li><code>__repr__</code>：返回对象的描述性字符串表示形式。</li>
+<li><code>__len__</code>：返回对象的长度。</li>
+<li><code>__add__</code>、<code>__sub__</code>、<code>__mul__</code>、<code>__div__</code>、<code>__mod__</code>、<code>__pow__</code>：分别对应加、减、乘、除、取模、幂运算。</li>
+<li><code>__eq__</code>、<code>__ne__</code>、<code>__lt__</code>、<code>__gt__</code>、<code>__le__</code>、<code>__ge__</code>：分别对应等于、不等于、小于、大于、小于等于、大于等于。</li>
+<li><code>__call__</code>：使对象可以像函数一样被调用。</li>
+</ul>
+</li>
+<li><strong>访问控制</strong>：<ul>
+<li>属性装饰器（getter、setter、deleter）用于控制属性的读写权限。</li>
+</ul>
+</li>
+<li><strong>继承和多态</strong>：<ul>
+<li>继承机制允许一个类继承另一个类的属性和方法。</li>
+<li>多态是指不同类的对象可以通过相同的接口进行操作。</li>
+</ul>
+</li>
+<li><strong>类方法和静态方法</strong>：<ul>
+<li>类方法是在类级别上操作的方法，可以通过类本身或类的实例调用。类方法使用 <code>@classmethod</code> 装饰器来定义，并且第一个参数是类本身（通常命名为 <code>cls</code>）。</li>
+<li>静态方法是与类相关的方法，但不需要类的实例即可调用。静态方法使用 <code>@staticmethod</code> 装饰器来定义。</li>
+</ul>
+</li>
+<li><strong>数据封装</strong>：<ul>
+<li>数据封装是将数据（属性）和操作数据的代码（方法）捆绑在一起，使得对象的内部状态对外部隐藏，从而提高了代码的安全性和可维护性。</li>
+</ul>
+</li>
+<li><strong>多重继承</strong>：<ul>
+<li>多重继承允许一个类同时继承多个基类的属性和方法。</li>
+</ul>
+</li>
+<li><strong>元类</strong>：<ul>
+<li>元类是创建类的类，可以用来定义如何创建类本身。元类可以用来实现更复杂的类创建逻辑，如自动注册类实例等。</li>
+</ul>
+</li>
+<li><strong>单例模式</strong>：<ul>
+<li>单例模式确保一个类只有一个实例，并提供一个全局访问点来获取这个唯一实例。</li>
+</ul>
+</li>
+<li><strong>迭代器和生成器</strong>：<ul>
+<li>迭代器用于逐个访问序列中的元素，生成器则用于延迟计算，节省内存。</li>
+</ul>
+</li>
+<li><strong>上下文管理器</strong>：<ul>
+<li>上下文管理器用于资源管理，如文件打开、锁定等。</li>
+</ul>
+</li>
+<li><strong>协程</strong>：<ul>
+<li>协程是一种轻量级线程，用于非阻塞的并发编程。</li>
+</ul>
+</li>
+<li><strong>闭包</strong>：<ul>
+<li>闭包用于保存函数局部变量的引用，以便在函数外部访问这些变量。</li>
+</ul>
+</li>
+<li><strong>内存管理</strong>：<ul>
+<li>Python提供了垃圾回收机制来自动管理内存，减少内存泄漏的风险。</li>
+</ul>
+</li>
+</ol>
+<h4 id="多态性"><a href="#多态性" class="headerlink" title="多态性"></a>多态性</h4><p>在Python中实现多态性主要通过以下几种方式：</p>
+<ol>
+<li><strong>方法重写</strong>：子类可以重写父类中的同名方法，从而实现不同的行为。</li>
+<li><strong>接口（或抽象基类）</strong>：定义一个接口，子类必须实现这些方法。然后，可以编写接受接口的代码，这样就可以在运行时根据对象的实际类型调用相应的方法。</li>
+<li><strong>鸭子类型多态</strong>：只要一个对象具有某些特定的方法或属性，就可以被当作另一个对象使用，而无需考虑它们的具体类型。</li>
+</ol>
+<p>下面提供一个具体的示例来说明如何在Python中实现多态性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定义一个动物类</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        self.name  = name<br><br>    <span class="hljs-comment"># 定义一个叫方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">speak</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;self.name &#125;</span> says something&quot;</span>)<br><br><span class="hljs-comment"># 定义一个猫类，继承自动物类，并重写speak方法</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name)<br><br>    <span class="hljs-comment"># 重写speak方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">speak</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;self.name &#125;</span> meows&quot;</span>)<br><br><span class="hljs-comment"># 定义一个狗类，继承自动物类，并重写speak方法</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span>(<span class="hljs-title class_ inherited__">Animal</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name)<br><br>    <span class="hljs-comment"># 重写speak方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">speak</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;self.name &#125;</span> barks&quot;</span>)<br><br><span class="hljs-comment"># 创建猫和狗的实例</span><br>cat = Cat(<span class="hljs-string">&quot;Kitty&quot;</span>)<br>dog = Dog(<span class="hljs-string">&quot;Barky&quot;</span>)<br><br><span class="hljs-comment"># 调用speak方法</span><br>cat.speak ()<br>dog.speak ()<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个<code>Animal</code>类和两个子类<code>Cat</code>和<code>Dog</code>。每个子类都重写了<code>speak</code>方法，以实现不同的行为。当我们创建猫和狗的实例并调用<code>speak</code>方法时，Python会自动调用正确的实现方式，从而实现多态性。</p>
+<p>这种方式不需要显式地声明接口，只需关注对象的接口即可。</p>
+<h4 id="继承机制"><a href="#继承机制" class="headerlink" title="继承机制"></a>继承机制</h4><p>Python中的继承机制是面向对象编程（OOP）三大特性之一，允许子类继承父类的属性和方法，从而实现代码的重用和扩展。在Python中，子类通过<code>class</code>关键字和父类名定义，可以支持单继承和多继承。</p>
+<h5 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h5><ol>
+<li><strong>单继承</strong>：子类继承一个父类的所有属性和方法。<br>子类可以通过父类名来访问父类的成员，也可以使用<code>super()</code>函数调用父类的同名方法。</li>
+<li><strong>多继承</strong>：子类可以同时继承多个父类的属性和方法，这种机制在某些情况下可以简化代码，但也容易导致混乱和复杂性。</li>
+<li><strong>方法解析顺序（MRO）</strong>：在多继承的情况下，Python采用广度优先的顺序来解析方法调用，这意味着如果多个父类中有同名方法，Python会按照从左到右的顺序查找并调用相应的方法。</li>
+</ol>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
+<li><strong>代码复用</strong>：继承机制极大地提高了代码的复用性，使得子类可以继承父类和祖类的方法以及属性。</li>
+<li><strong>模块化和层次化</strong>：继承可以创建类体系，提高代码的模块化和层次化，有助于实现更清晰的设计。</li>
+<li><strong>易于扩展</strong>：通过继承，新类可以轻松添加或修改继承自父类的成员，方便进行功能的扩展和修改。</li>
+</ol>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ol>
+<li><strong>违背直观思维</strong>：继承表达的是一种“是”什么的关系，而不是“包含”什么的关系，这可能会让一些初学者感到困惑。</li>
+<li><strong>多重继承的复杂性</strong>：虽然多重继承可以简化代码，但它也容易导致混乱和复杂性，特别是在处理同名方法时。</li>
+<li><strong>子类化内置类型的缺点</strong>：子类化内置类型可能会破坏内置类型的行为，导致不可预测的结果。</li>
+</ol>
+<p>Python中的继承机制通过允许子类继承父类的属性和方法，极大地提高了代码的复用性和模块化。</p>
+<h4 id="类定义的三种方法"><a href="#类定义的三种方法" class="headerlink" title="类定义的三种方法"></a>类定义的三种方法</h4><p>在Python中，<code>__init__</code>、<code>__str__</code>和<code>__repr__</code>方法是类定义中的特殊方法，分别用于对象的初始化、字符串表示形式和如何重新创建对象。</p>
+<ol>
+<li><strong><code>__init__</code> 方法</strong>：<ul>
+<li><strong>作用</strong>：<code>__init__</code>方法是一个特殊的函数，当创建一个类的新实例时，Python解释器会自动调用它。它的主要目的是初始化对象的状态，即设置对象的属性或执行必要的设置操作。</li>
+<li><strong>使用场景</strong>：在每次创建新对象时，都可以通过<code>__init__</code>方法进行初始化设定。例如，可以在这个方法中为对象设置初始值、连接数据库等。</li>
+</ul>
+</li>
+<li><strong><code>__str__</code> 方法</strong>：<ul>
+<li><strong>作用</strong>：<code>__str__</code>方法用于定义一个对象的字符串表示形式。当我们通过使用<code>print</code>函数或将对象转换为字符串时，Python会调用这个方法来获取对象的字符串表示。</li>
+<li><strong>使用场景</strong>：通常用于生成用户友好的输出，或者当需要将对象转换为字符串以便于阅读和传输时。</li>
+</ul>
+</li>
+<li><strong><code>__repr__</code> 方法</strong>：<ul>
+<li><strong>作用</strong>：<code>__repr__</code>方法返回一个字符串，该字符串描述了如何重新创建该对象。如果你将这个字符串传递给<code>eval()</code>函数，你将得到与原始对象相同的值。</li>
+<li><strong>使用场景</strong>：当需要精确地描述如何重新创建对象时使用。例如，在调试过程中，开发者可能需要看到一个对象的详细信息，以便于复现问题或进行进一步的操作。</li>
+</ul>
+</li>
+</ol>
+<p>总结来说，<code>__init__</code>用于对象的初始化，<code>__str__</code>用于生成用户友好的字符串表示，而<code>__repr__</code>则用于生成可以重新创建对象的字符串表示。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%B1%BB%EF%BC%88class%EF%BC%89/">#类（class）</a>
+      
+        <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">#面向对象编程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python（四）</div>
+      <div>https://forever0823.github.io/2024/05/25/class/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Alan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年5月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/25/matplotlib/" title="matplotlib">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">matplotlib</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/05/18/socket/" title="Socket">
+                        <span class="hidden-mobile">Socket</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
